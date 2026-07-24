@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Travel Explorer</title></title>
+        <link rel="stylesheet" href="style.css">>
+        </head>
+        <body>
+
+            <nav>
+                <h2>Travel Explorer</h2>
+
+                <ul>
+                    <li>Home</li>
+                    <li>Destinations</li>
+                    <li>Catogories</li>
+                    <li>About</li>
+                </ul>
+            </nav>
+            
+            <section id="hero">
+                <div class="slider">
+                    <img id="sliderImage"src="images/paris.jpg" alt="Travel Destination"
+                </div>
+                <h1>Discover Amazing Places Around the World</h1>
+
+                <p>Explore Breathtaking destination and unforgattable travel experiences.</p>
+                <button onclick="document.getElementById('destinations').scrollIntoView({behavior:'smooth'})">
+    Explore Destinations
+</button>
+            </section>
+            <section id="destinations">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search Destinations...">
+                </div>
+
+    <h2>Popular Destinations</h2>
+
+    <div class="cards">
+
+        
+         <div class="card adventure">
+            <img src="images/paris.jpg.jpg"alt="Paris">
+            <h3>Paris</h3>
+            <p>France</p>
+            <p>The city of love and lights.</p>
+            <button onclick="showDetails('Paris')">view Details</button>
+        </div>
+
+        <div class="card adventure">
+             <img src="images/dubai.jpg.jpg"alt="Dubai">
+            <h3>Dubai</h3>
+            <p>UAE</p>
+            <p>Modern architecture and luxury lifestyle.</p>
+             <button onclick="showDetails('Dubai')">view Details</button>
+        </div>
+
+        <div class="card mountain">
+             <img src="images/hunza.jpg.jpg"alt="Hunza">
+            <h3>Hunza</h3>
+            <p>Pakistan</p>
+            <p>Beautiful mountains and natural beauty.</p>
+             <button onclick="showDetails('Hunza')">view Details</button>
+        </div>
+
+        <div class="card beach">
+             <img src="images/bali.jpg.jpg"alt="Bali">
+            <h3>Bali</h3>
+            <p>Indonesia</p>
+            <p>Tropical paradise with amazing beaches.</p>
+             <button onclick="showDetails('Bali')">view Details</button>
+        </div>
+
+        <div class="card cultural">
+            <img src="images/rome.jpg.jpg" alt="Rome">
+            <h3>Rome</h3>
+            <p>Italy</p>
+            <p>Historic city rich in culture and heritage.</p>
+            <button onclick="showDetails('Rome')">View Details</button>
+        </div>
+       
+        <div class="card nature">
+            <img src="images/amazon.jpg.jpg" alt="Amazon">
+            <h3>Amazon Rainforest</h3>
+            <p>Brazil</p>
+            <p>Home to incredible wildlife and biodiversity.</p>
+            <button onclick="showDetails('Amazon Rainforest')">View Details</button>
+        </div>
+
+
+    </div>
+
+</section>
+<section id="categories">
+
+    <h2>Travel Categories</h2>
+
+    <div class="category-box">
+
+        <div class="category" onclick="filterDestination('all')">All</div>
+<div class="category" onclick="filterDestination('beach')">Beaches</div>
+<div class="category" onclick="filterDestination('mountain')">Mountains</div>
+<div class="category" onclick="filterDestination('adventure')">Adventure</div>
+<div class="category" onclick="filterDestination('cultural')">Cultural Destinations</div>
+<div class="category" onclick="filterDestination('nature')">Nature & Wildlife</div>
+
+       </div>
+
+</section>
+<section id="featured">
+    <h2>Featured Destinations</h2>
+    <div class="featured-box"> 
+     <div class="featured-card">
+        <h3>Maldives</h3>
+        <p>Famous for crystal-clear beaches and luxury resorts</p>
+     </div>
+     <div class="featured-card">
+        <h3>Switzerland</h3>
+        <p>Known for Breathtaking mountains and scenic landscapes</p>
+     </div>
+     <div class="featured-card">
+        <h4>Skardu</h4>
+        <p>Known for dramatic high-altitude landscapes, crystal clear lakes and cold deserts</p>
+     </div>
+
+    </div>
+</section>
+<section id="About">
+    <h2>About our travel platform</h2>
+    <p>Welcome to our Travel & Tourism platform. Our goal is to help travelers ti Discover amazing destinations, 
+        explore different cultures, and plan unforgattable journeys. Wether you love beaches, mountains, adventure,
+        or crystal-clear lakes, or hostorical places, we provide inspiration and information for your next trip.</p>
+</section>
+<script src="script.js"></script>
+</body>
+</html>
+

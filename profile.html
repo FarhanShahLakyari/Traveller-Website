@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile - Travel Explorer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+
+        <h2>Travel Explorer</h2>
+
+        <ul>
+            <li>
+                <a href="index.html#hero">Home</a>
+            </li>
+
+            <li>
+                <a href="index.html#dashboard">Dashboard</a>
+            </li>
+
+            <li>
+                <a href="index.html#destinations">Destinations</a>
+            </li>
+
+            <li>
+                <a href="index.html#categories">Categories</a>
+            </li>
+
+            <li>
+                <a href="profile.html">Profile</a>
+            </li>
+        </ul>
+
+    </nav>
+
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+
+        <h1>My Travel Profile 👤</h1>
+
+
+        <div class="profile-card">
+
+            <!-- Profile Image -->
+            <img
+                src="images/profile.jpg"
+                alt="Profile Image"
+                class="profile-image"
+            >
+
+
+            <!-- User Name -->
+            <h2>Travel Explorer</h2>
+
+
+            <!-- Short Bio -->
+            <p>
+                I love discovering beautiful destinations,
+                exploring new cultures, and planning unforgettable
+                travel experiences. 🌍✈️
+            </p>
+
+
+            <!-- Profile Statistics -->
+            <div class="profile-stats">
+
+                <!-- Favorites -->
+                <div class="stat-box">
+
+                    <h3 id="profileFavoriteCount">
+                        0
+                    </h3>
+
+                    <p>
+                        ❤️ Favorite Destinations
+                    </p>
+
+                </div>
+
+
+                <!-- Planned Trips -->
+                <div class="stat-box">
+
+                    <h3 id="profileTripCount">
+                        0
+                    </h3>
+
+                    <p>
+                        ✈️ Planned Trips
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Dashboard Button -->
+            <button
+                onclick="window.location.href='index.html#dashboard'"
+            >
+                Go to Dashboard
+            </button>
+
+
+            <!-- Home Button -->
+            <button
+                onclick="window.location.href='index.html'"
+            >
+                Back to Home
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Profile JavaScript -->
+    <script>
+
+        // Get saved favorites
+        const savedFavorites =
+            JSON.parse(
+                localStorage.getItem("travelFavorites")
+            ) || [];
+
+
+        // Get planned trips
+        const savedTrips =
+            JSON.parse(
+                localStorage.getItem("plannedTrips")
+            ) || [];
+
+
+        // Update Favorite Count
+        const favoriteCount =
+            document.getElementById(
+                "profileFavoriteCount"
+            );
+
+        if (favoriteCount) {
+
+            favoriteCount.innerText =
+                savedFavorites.length;
+
+        }
+
+
+        // Update Planned Trip Count
+        const tripCount =
+            document.getElementById(
+                "profileTripCount"
+            );
+
+        if (tripCount) {
+
+            tripCount.innerText =
+                savedTrips.length;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

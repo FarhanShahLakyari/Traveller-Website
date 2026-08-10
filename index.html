@@ -1,148 +1,534 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Travel Explorer</title></title>
-        <link rel="stylesheet"href="style.css">
-        </head>
-        <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-            <nav>
-                <h2>Travel Explorer</h2>
+<body>
 
-               <ul>
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#destinations">Destinations</a></li>
-    <li><a href="#categories">Categories</a></li>
-    <li><a href="#About">About</a></li>
-</ul>
-            </nav>
-            
-            <section id="hero">
-                <div class="slider">
-                    <img id="sliderImage"src="images/paris.jpg" alt="Travel Destination">
-                </div>
-                <h1>Discover Amazing Places Around the World</h1>
+<!-- Navigation -->
+<nav>
+    <h2>Travel Explorer</h2>
 
-                <p>Explore Breathtaking destination and unforgattable travel experiences.</p>
-                <button onclick="document.getElementById('destinations').scrollIntoView({behavior:'smooth'})">
-    Explore Destinations
-</button>
-            </section>
-            <section id="destinations">
-                <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Search Destinations...">
-                </div>
+    <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#featured">Featured</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="profile.html">Profile</a></li>
+    </ul>
+</nav>
+
+
+<!-- HERO -->
+<section id="hero">
+
+    <div class="slider">
+        <img id="sliderImage" src="images/paris.jpg" alt="Travel Destination">
+    </div>
+
+    <h1>Discover Amazing Places Around the World</h1>
+
+    <p>
+        Explore breathtaking destinations and unforgettable travel experiences.
+    </p>
+
+    <button onclick="document.getElementById('destinations').scrollIntoView({behavior:'smooth'})">
+        Explore Destinations
+    </button>
+
+</section>
+
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+
+    <h2>My Travel Dashboard</h2>
+
+    <p class="dashboard-welcome">
+        Welcome back, Traveler! 🌍
+    </p>
+
+    <div class="dashboard-cards">
+
+        <div class="dashboard-card">
+            <h3>❤️ Favorites</h3>
+            <p id="favoriteCount">0</p>
+            <span>Saved Destinations</span>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>👀 Recently Viewed</h3>
+            <p id="recentCount">0</p>
+            <span>Destinations Viewed</span>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>✈️ Planned Trips</h3>
+            <p id="tripCount">0</p>
+            <span>Upcoming Trips</span>
+        </div>
+
+    </div>
+
+
+    <!-- Recently Viewed -->
+    <div class="dashboard-section">
+
+        <h3>👀 Recently Viewed Destinations</h3>
+
+        <div id="recentDestinations" class="dashboard-destination-list">
+            <p>No destinations viewed yet.</p>
+        </div>
+
+    </div>
+
+
+    <!-- Favorites -->
+    <div class="dashboard-section">
+
+        <h3>❤️ My Favorite Destinations</h3>
+
+        <div id="favoriteDestinations" class="dashboard-destination-list">
+            <p>No favorite destinations yet.</p>
+        </div>
+
+    </div>
+
+
+    <!-- PLANNED TRIPS -->
+    <div class="dashboard-section">
+
+        <h3>✈️ My Planned Trips</h3>
+
+        <div id="plannedDestinations" class="dashboard-destination-list">
+            <p>No trips planned yet.</p>
+        </div>
+
+    </div>
+
+
+    <!-- Recommendations -->
+    <div class="dashboard-section">
+
+        <h3>⭐ Popular Recommendations</h3>
+
+        <div class="recommendation-box">
+
+            <div class="recommendation-card">
+                <h3>🏔️ Skardu</h3>
+                <p>
+                    Explore breathtaking mountains, lakes and beautiful landscapes.
+                </p>
+
+                <button onclick="showDetails('skardu')">
+                    View Details
+                </button>
+
+                <button onclick="planTrip('skardu')">
+                    ✈️ Add to Plan Trip
+                </button>
+            </div>
+
+
+            <div class="recommendation-card">
+                <h3>🏝️ Maldives</h3>
+                <p>
+                    Enjoy beautiful beaches, clear water and peaceful views.
+                </p>
+
+                <button onclick="showDetails('maldives')">
+                    View Details
+                </button>
+
+                <button onclick="planTrip('maldives')">
+                    ✈️ Add to Plan Trip
+                </button>
+            </div>
+
+
+            <div class="recommendation-card">
+                <h3>🇨🇭 Switzerland</h3>
+                <p>
+                    Discover amazing mountains, villages and scenic landscapes.
+                </p>
+
+                <button onclick="showDetails('switzerland')">
+                    View Details
+                </button>
+
+                <button onclick="planTrip('switzerland')">
+                    ✈️ Add to Plan Trip
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Quick Navigation -->
+    <div class="quick-navigation">
+
+        <h3>🧭 Quick Navigation</h3>
+
+        <button onclick="document.getElementById('destinations').scrollIntoView({behavior:'smooth'})">
+            Explore Destinations
+        </button>
+
+        <button onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">
+            Browse Categories
+        </button>
+
+        <button onclick="window.location.href='profile.html'">
+            My Profile
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- DESTINATIONS -->
+<section id="destinations">
+
+    <div class="search-container">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Destinations..."
+        >
+
+    </div>
 
     <h2>Popular Destinations</h2>
 
     <div class="cards">
 
+
+        <!-- PARIS -->
         <div class="destination-card" data-category="historical">
-    <img src="images/paris.jpg" alt="Paris">
-    <h3>Paris</h3>
-    <p><strong>Location:</strong> France</p>
-    <p><strong>Category:</strong> Historical</p>
-    <p>Explore the Eiffel Tower, museums, and beautiful streets of Paris.</p>
-    <p>⭐⭐⭐⭐⭐ (4.9)</p>
-    <button onclick="showDetails('paris')">View Details</button>
-</div>
 
-<div class="destination-card" data-category="adventure">
-    <img src="images/dubai.jpg" alt="Dubai">
-    <h3>Dubai</h3>
-    <p><strong>Location:</strong> United Arab Emirates</p>
-    <p><strong>Category:</strong> Adventure</p>
-    <p>Experience luxury shopping, desert safari, and the Burj Khalifa.</p>
-    <p>⭐⭐⭐⭐☆ (4.8)</p>
-    <button onclick="showDetails('dubai')">View Details</button>
-</div>
+            <img src="images/paris.jpg" alt="Paris">
 
-<div class="destination-card" data-category="mountains">
-    <img src="images/hunza.jpg" alt="Hunza Valley">
-    <h3>Hunza Valley</h3>
-    <p><strong>Location:</strong> Pakistan</p>
-    <p><strong>Category:</strong> Mountains</p>
-    <p>Enjoy breathtaking mountains, lakes, and peaceful valleys.</p>
-    <p>⭐⭐⭐⭐⭐ (5.0)</p>
-    <button onclick="showDetails('hunza')">View Details</button>
-</div>
+            <h3>Paris</h3>
 
-<div class="destination-card" data-category="beaches">
-    <img src="images/bali.jpg" alt="Bali">
-    <h3>Bali</h3>
-    <p><strong>Location:</strong> Indonesia</p>
-    <p><strong>Category:</strong> Beaches</p>
-    <p>Relax on tropical beaches and experience Balinese culture.</p>
-    <p>⭐⭐⭐⭐☆ (4.8)</p>
-    <button onclick="showDetails('bali')">View Details</button>
-</div>
+            <p><strong>Location:</strong> France</p>
 
-<div class="destination-card" data-category="cultural">
-    <img src="images/rome.jpg" alt="Rome">
-    <h3>Rome</h3>
-    <p><strong>Location:</strong> Italy</p>
-    <p><strong>Category:</strong> Cultural</p>
-    <p>Visit the Colosseum, Vatican City, and ancient Roman landmarks.</p>
-    <p>⭐⭐⭐⭐⭐ (4.9)</p>
-    <button onclick="showDetails('rome')">View Details</button>
-</div>
+            <p><strong>Category:</strong> Historical</p>
 
-<div class="destination-card" data-category="nature">
-    <img src="images/kenya.jpg" alt="Maasai Mara">
-    <h3>Maasai Mara</h3>
-    <p><strong>Location:</strong> Kenya</p>
-    <p><strong>Category:</strong> Nature & Wildlife</p>
-    <p>Witness incredible wildlife and unforgettable safari adventures.</p>
-    <p>⭐⭐⭐⭐⭐ (4.9)</p>
-    <button onclick="showDetails('kenya')">View Details</button>
-</div>
+            <p>
+                Explore the Eiffel Tower, museums, and beautiful streets of Paris.
+            </p>
 
+            <p>⭐⭐⭐⭐⭐ (4.9)</p>
+
+            <button onclick="showDetails('paris')">
+                View Details
+            </button>
+
+            <button
+                class="favorite-btn"
+                onclick="toggleFavorite('paris')"
+                id="favorite-paris">
+                ❤️ Add to Favorites
+            </button>
+
+            <button
+                class="plan-btn"
+                onclick="planTrip('paris')">
+                ✈️ Add to Plan Trip
+            </button>
+
+        </div>
+
+
+        <!-- DUBAI -->
+        <div class="destination-card" data-category="adventure">
+
+            <img src="images/dubai.jpg" alt="Dubai">
+
+            <h3>Dubai</h3>
+
+            <p><strong>Location:</strong> United Arab Emirates</p>
+
+            <p><strong>Category:</strong> Adventure</p>
+
+            <p>
+                Experience luxury shopping, desert safari, and the Burj Khalifa.
+            </p>
+
+            <p>⭐⭐⭐⭐☆ (4.8)</p>
+
+            <button onclick="showDetails('dubai')">
+                View Details
+            </button>
+
+            <button
+                class="favorite-btn"
+                onclick="toggleFavorite('dubai')"
+                id="favorite-dubai">
+                ❤️ Add to Favorites
+            </button>
+
+            <button
+                class="plan-btn"
+                onclick="planTrip('dubai')">
+                ✈️ Add to Plan Trip
+            </button>
+
+        </div>
+
+
+        <!-- HUNZA -->
+        <div class="destination-card" data-category="mountains">
+
+            <img src="images/hunza.jpg" alt="Hunza Valley">
+
+            <h3>Hunza Valley</h3>
+
+            <p><strong>Location:</strong> Pakistan</p>
+
+            <p><strong>Category:</strong> Mountains</p>
+
+            <p>
+                Enjoy breathtaking mountains, lakes, and peaceful valleys.
+            </p>
+
+            <p>⭐⭐⭐⭐⭐ (5.0)</p>
+
+            <button onclick="showDetails('hunza')">
+                View Details
+            </button>
+
+            <button
+                class="favorite-btn"
+                onclick="toggleFavorite('hunza')"
+                id="favorite-hunza">
+                ❤️ Add to Favorites
+            </button>
+
+            <button
+                class="plan-btn"
+                onclick="planTrip('hunza')">
+                ✈️ Add to Plan Trip
+            </button>
+
+        </div>
+
+
+        <!-- BALI -->
+        <div class="destination-card" data-category="beaches">
+
+            <img src="images/bali.jpg" alt="Bali">
+
+            <h3>Bali</h3>
+
+            <p><strong>Location:</strong> Indonesia</p>
+
+            <p><strong>Category:</strong> Beaches</p>
+
+            <p>
+                Relax on tropical beaches and experience Balinese culture.
+            </p>
+
+            <p>⭐⭐⭐⭐☆ (4.8)</p>
+
+            <button onclick="showDetails('bali')">
+                View Details
+            </button>
+
+            <button
+                class="favorite-btn"
+                onclick="toggleFavorite('bali')"
+                id="favorite-bali">
+                ❤️ Add to Favorites
+            </button>
+
+            <button
+                class="plan-btn"
+                onclick="planTrip('bali')">
+                ✈️ Add to Plan Trip
+            </button>
+
+        </div>
+
+
+        <!-- ROME -->
+        <div class="destination-card" data-category="cultural">
+
+            <img src="images/rome.jpg" alt="Rome">
+
+            <h3>Rome</h3>
+
+            <p><strong>Location:</strong> Italy</p>
+
+            <p><strong>Category:</strong> Cultural</p>
+
+            <p>
+                Visit the Colosseum, Vatican City, and ancient Roman landmarks.
+            </p>
+
+            <p>⭐⭐⭐⭐⭐ (4.9)</p>
+
+            <button onclick="showDetails('rome')">
+                View Details
+            </button>
+
+            <button
+                class="favorite-btn"
+                onclick="toggleFavorite('rome')"
+                id="favorite-rome">
+                ❤️ Add to Favorites
+            </button>
+
+            <button
+                class="plan-btn"
+                onclick="planTrip('rome')">
+                ✈️ Add to Plan Trip
+            </button>
+
+        </div>
+
+
+        <!-- KENYA -->
+        <div class="destination-card" data-category="nature">
+
+            <img src="images/kenya.jpg" alt="Maasai Mara">
+
+            <h3>Maasai Mara</h3>
+
+            <p><strong>Location:</strong> Kenya</p>
+
+            <p><strong>Category:</strong> Nature & Wildlife</p>
+
+            <p>
+                Witness incredible wildlife and unforgettable safari adventures.
+            </p>
+
+            <p>⭐⭐⭐⭐⭐ (4.9)</p>
+
+            <button onclick="showDetails('kenya')">
+                View Details
+            </button>
+
+            <button
+                class="favorite-btn"
+                onclick="toggleFavorite('kenya')"
+                id="favorite-kenya">
+                ❤️ Add to Favorites
+            </button>
+
+            <button
+                class="plan-btn"
+                onclick="planTrip('kenya')">
+                ✈️ Add to Plan Trip
+            </button>
+
+        </div>
 
     </div>
 
 </section>
+
+
+<!-- CATEGORIES -->
 <section id="categories">
 
     <h2>Travel Categories</h2>
 
     <div class="category-box">
 
-       <div class="category" onclick="filterDestination('all')">All</div>
-<div class="category" onclick="filterDestination('beaches')">Beaches</div>
-<div class="category" onclick="filterDestination('mountains')">Mountains</div>
-<div class="category" onclick="filterDestination('historical')">Historical</div>
-<div class="category" onclick="filterDestination('adventure')">Adventure</div>
-<div class="category" onclick="filterDestination('cultural')">Cultural</div>
-<div class="category" onclick="filterDestination('nature')">Nature & Wildlife</div>
+        <div class="category" onclick="filterDestination('all')">
+            All
+        </div>
 
-       </div>
+        <div class="category" onclick="filterDestination('beaches')">
+            Beaches
+        </div>
 
-</section>
-<section id="featured">
-    <h2>Featured Destinations</h2>
-    <div class="featured-box"> 
-     <div class="featured-card">
-        <h3>Maldives</h3>
-        <p>Famous for crystal-clear beaches and luxury resorts</p>
-     </div>
-     <div class="featured-card">
-        <h3>Switzerland</h3>
-        <p>Known for Breathtaking mountains and scenic landscapes</p>
-     </div>
-     <div class="featured-card">
-        <h4>Skardu</h4>
-        <p>Known for dramatic high-altitude landscapes, crystal clear lakes and cold deserts</p>
-     </div>
+        <div class="category" onclick="filterDestination('mountains')">
+            Mountains
+        </div>
+
+        <div class="category" onclick="filterDestination('historical')">
+            Historical
+        </div>
+
+        <div class="category" onclick="filterDestination('adventure')">
+            Adventure
+        </div>
+
+        <div class="category" onclick="filterDestination('cultural')">
+            Cultural
+        </div>
+
+        <div class="category" onclick="filterDestination('nature')">
+            Nature & Wildlife
+        </div>
 
     </div>
+
 </section>
+
+
+<!-- FEATURED -->
+<section id="featured">
+
+    <h2>Featured Destinations</h2>
+
+    <div class="featured-box">
+
+        <div class="featured-card">
+            <h3>Maldives</h3>
+            <p>
+                Famous for crystal-clear beaches and luxury resorts.
+            </p>
+        </div>
+
+        <div class="featured-card">
+            <h3>Switzerland</h3>
+            <p>
+                Known for breathtaking mountains and scenic landscapes.
+            </p>
+        </div>
+
+        <div class="featured-card">
+            <h3>Skardu</h3>
+            <p>
+                Known for dramatic high-altitude landscapes,
+                crystal-clear lakes and cold deserts.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
 <section id="About">
-    <h2>About our travel platform</h2>
-    <p>Welcome to our Travel & Tourism platform. Our goal is to help travelers ti Discover amazing destinations, 
-        explore different cultures, and plan unforgattable journeys. Wether you love beaches, mountains, adventure,
-        or crystal-clear lakes, or hostorical places, we provide inspiration and information for your next trip.</p>
+
+    <h2>About Our Travel Platform</h2>
+
+    <p>
+        Welcome to our Travel & Tourism platform. Our goal is to help
+        travelers discover amazing destinations, explore different
+        cultures, and plan unforgettable journeys. Whether you love
+        beaches, mountains, adventure, crystal-clear lakes, or historical
+        places, we provide inspiration and information for your next trip.
+    </p>
+
 </section>
-<!-- Destination Details Modal -->
+
+
+<!-- DESTINATION DETAILS MODAL -->
 <div id="destinationModal" class="modal">
 
     <div class="modal-content">
@@ -153,24 +539,46 @@
 
         <h2 id="modalTitle"></h2>
 
-        <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+        <p>
+            <strong>Location:</strong>
+            <span id="modalLocation"></span>
+        </p>
 
-        <p><strong>Category:</strong> <span id="modalCategory"></span></p>
+        <p>
+            <strong>Category:</strong>
+            <span id="modalCategory"></span>
+        </p>
 
         <p id="modalDescription"></p>
 
         <h3>Highlights</h3>
+
         <ul id="modalHighlights"></ul>
 
         <h3>Travel Information</h3>
+
         <p id="modalTravel"></p>
 
-        <button class="explore-btn">Explore Now</button>
+        <button
+            type="button"
+            class="explore-btn"
+            onclick="closeModal(); document.getElementById('destinations').scrollIntoView({behavior:'smooth'});">
+            Explore Now
+        </button>
 
     </div>
 
 </div>
+
+
+<!-- NOTIFICATION -->
+<div id="notification" class="notification">
+    Destination updated successfully!
+</div>
+
+
+<!-- JAVASCRIPT -->
 <script src="script.js"></script>
+
 </body>
 </html>
-
